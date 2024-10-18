@@ -67,4 +67,27 @@ public class GameUtils {
         return phrase.replaceAll("[a-z]", "_");
     };
 
+    public static void printGallows(int lives){
+        String[] gallowsPics = {
+            " +---+\n     |\n     |\n     |\n    ===", 
+            " +---+\n O   |\n     |\n     |\n    ===", 
+            " +---+\n O   |\n |   |\n     |\n    ===", 
+            " +---+\n O   |\n/|   |\n     |\n    ===", 
+            " +---+\n O   |\n/|\\  |\n     |\n    ===", 
+            " +---+\n O   |\n/|\\  |\n/    |\n    ===", 
+            " +---+\n O   |\n/|\\  |\n/ \\  |\n    ==="
+        };
+
+        System.out.println(gallowsPics[6 - lives]);
+    }
+
+    public static char getGuess(){
+        checkGuess(' ');
+        return ' ';
+    }
+
+    private static char checkGuess(char Guess){
+        return ' ';
+    }
+
 }
