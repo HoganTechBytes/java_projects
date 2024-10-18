@@ -7,14 +7,19 @@ public class Hangman {
         // Variables used
         String secretPhrase;
         String hiddenPhrase;
+        boolean playingGame;
 
-        printGameName();
-        for(int i = 0; i < 10; i++){
+        playingGame = true;
+
+        while (playingGame) {
             secretPhrase = getSecret();
-
-            System.out.println(secretPhrase);
-            System.out.println(hidePhrase(secretPhrase));
+            hiddenPhrase = hidePhrase(secretPhrase);
+            printGameName();
+            
         }
+
+        
+        
 
     }
 
