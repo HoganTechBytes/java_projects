@@ -1,5 +1,6 @@
 package java_projects.hangman.src.hangman;
-import java.util.Random; 
+import java.util.Random;
+import java.util.Scanner; 
 
 public class GameUtils {
 
@@ -82,12 +83,25 @@ public class GameUtils {
     }
 
     public static char getGuess(){
-        checkGuess(' ');
-        return ' ';
+        // Variables
+        Scanner scanner = new Scanner(System.in);
+        String playerGuess;
+
+        while(true){
+            System.out.print("Enter a letter: ");
+            playerGuess = scanner.nextLine().toLowerCase();
+            // Call method to validate guess and return
+            if(checkGuess(playerGuess)){
+                return playerGuess.charAt(0);
+            }else{
+                System.out.println("Invalid guess. You need to enter a single letter.");
+            }
+        }
     }
 
-    private static char checkGuess(char Guess){
-        return ' ';
+     private static boolean checkGuess(String guess){    
+        // Validate the guess: it should be exactly one letter
+        return guess.length() == 1 && Character.isLetter(guess.charAt(0));
     }
 
 }

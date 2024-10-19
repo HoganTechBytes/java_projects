@@ -11,6 +11,7 @@ public class Hangman {
 
         playingGame = true;
 
+        // Main game loop
         while (playingGame) {
             secretPhrase = getSecret();
             hiddenPhrase = hidePhrase(secretPhrase);
