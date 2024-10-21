@@ -1,4 +1,5 @@
 package java_projects.hangman.src.hangman;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner; 
 
@@ -82,16 +83,16 @@ public class GameUtils {
         System.out.println(gallowsPics[6 - lives]);
     }
 
-    public static char getGuess(){
+    public static char getGuess(Scanner scanner){
         // Variables
-        Scanner scanner = new Scanner(System.in);
         String playerGuess;
 
         while(true){
             System.out.print("Enter a letter: ");
             playerGuess = scanner.nextLine().toLowerCase();
+
             // Call method to validate guess and return
-            if(checkGuess(playerGuess)){
+            if(validateGuess(playerGuess)){
                 return playerGuess.charAt(0);
             }else{
                 System.out.println("Invalid guess. You need to enter a single letter.");
@@ -99,9 +100,47 @@ public class GameUtils {
         }
     }
 
-     private static boolean checkGuess(String guess){    
+     private static boolean validateGuess(String guess){    
         // Validate the guess: it should be exactly one letter
         return guess.length() == 1 && Character.isLetter(guess.charAt(0));
     }
+
+    public static String checkGuess(String playerGuess, String secretPhrase, String hiddenPhrase) {
+        StringBuilder newHiddenPhrase = new StringBuilder(hiddenPhrase);
+        boolean letterFound = false;
+    
+        // Iterate over the secret phrase and check if the player's guess matches any letter
+        for (int i = 0; i < secretPhrase.length(); i++) {
+            // Compare the player's guess with each letter in the secret phrase
+            if (playerGuess.equalsIgnoreCase(String.valueOf(secretPhrase.charAt(i)))) {
+                letterFound = true;
+                newHiddenPhrase.setCharAt(i, secretPhrase.charAt(i));  // Reveal the correct letter
+            }
+        }
+    
+        // If no letter was found, return the original hidden phrase (incorrect guess)
+        if (!letterFound) {
+            System.out.println("Incorrect guess.");
+        }
+    
+        return newHiddenPhrase.toString();
+    }
+
+    public static boolean gameReset(Scanner scanner, String[] answers){
+        String playerResponse;
+        while (true){
+            System.out.print("Would you like to play again? (y/n): ");
+            playerResponse = scanner.nextLine().toLowerCase();
+            if (Arrays.asList(answers).contains(playerResponse)) {
+                return playerResponse.equals("y") || playerResponse.equals("yes");  
+            } else {
+                System.out.println("Invalid input. Please enter 'y' or 'n'.");
+            }
+        }
+        
+    }
+    
+
+
 
 }
