@@ -7,7 +7,7 @@ public class MergeSort {
         long endTime;
         long elapsedTime;
 
-        int[] largeArray = MergeUtils.generateLargeArray(100000);
+        int[] largeArray = MergeUtils.generateLargeArray(1000000);
 
         System.out.println(Arrays.toString(largeArray));
 
@@ -20,7 +20,7 @@ public class MergeSort {
         endTime = System.currentTimeMillis();
         elapsedTime = endTime - startTime;
 
-         System.out.println("Sorted Array: " + Arrays.toString(largeArray) + " done in " + elapsedTime + " milliseconds.");
+         System.out.println("Sorted Array in " + elapsedTime + " milliseconds.");
 
 
 
