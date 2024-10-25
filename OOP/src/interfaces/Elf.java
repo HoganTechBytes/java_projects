@@ -1,4 +1,4 @@
-package inheritance;
+package interfaces;
 
 public class Elf extends BaseRace{
 

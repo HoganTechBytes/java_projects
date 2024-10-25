@@ -1,4 +1,4 @@
-package inheritance;
+package interfaces;
 
 public class Earth {
 
@@ -21,6 +21,7 @@ public class Earth {
 
         System.out.println(player3.name);
         player3.displayStats();
+        player3.attack();
         
         
        
