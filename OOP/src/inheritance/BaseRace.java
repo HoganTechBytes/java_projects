@@ -15,8 +15,12 @@ public class BaseRace {
     }
 
     public void displayStats(){
-        System.out.printf("Health: %d%n",(int)((stamina * 10) / 100));
-        System.out.printf("Mana: %d%n",(int)((intelligence * 10) / 100));
+        System.out.printf("Health: %d%n", (stamina * 10) / 100);
+        System.out.printf("Mana: %d%n", (intelligence * 10) / 100);
+    }
+
+    public static void attack(){
+
     }
 
 }
